@@ -1,4 +1,4 @@
-
+#include <app_version.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
@@ -70,8 +70,10 @@ int32_t main(void) {
 		return ret;
 	}
 
+	LOG_INF("version: %s", STRINGIFY(APP_BUILD_VERSION));
+
 	while (1) {
-		/* switch between LEDs depending on number of button presses */
+		/* Switch between LEDs depending on number of button presses. */
 		if ((button_count % 2) == 0) {
 			gpio_pin_toggle_dt(&led0);
 			gpio_pin_set_dt(&led1, 0);
