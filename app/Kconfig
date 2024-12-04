@@ -1,0 +1,10 @@
+# All application Kconfig options can be defined here or included via other files.
+# You can browse these options using the west targets menuconfig or guiconfig.
+
+module = APP
+module-str = APP
+source "subsys/logging/Kconfig.template.log_config"
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
