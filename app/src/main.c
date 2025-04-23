@@ -9,7 +9,6 @@ static const struct gpio_dt_spec button = GPIO_DT_SPEC_GET(DT_ALIAS(sw0), gpios)
 static struct gpio_callback button_cb;
 
 static struct gpio_dt_spec led0 = GPIO_DT_SPEC_GET(DT_ALIAS(led0), gpios);
-static struct gpio_dt_spec led1 = GPIO_DT_SPEC_GET(DT_ALIAS(led1), gpios);
 
 static uint32_t button_count = 0; 
 void button_pressed(const struct device *dev, struct gpio_callback *cb, uint32_t pins) {
@@ -51,16 +50,6 @@ int32_t board_setup(void) {
 		return ret;
 	}
 
-	if (!gpio_is_ready_dt(&led1)) {
-		LOG_ERR("Led1 init failed");
-		return -ENODEV;
-	}
-	ret = gpio_pin_configure_dt(&led1, GPIO_OUTPUT);
-	if (ret < 0) {
-		LOG_ERR("Led1 configure failed (%d)", ret);
-		return ret;
-	}
-
 	return 0;
 }
 
@@ -73,16 +62,14 @@ int32_t main(void) {
 	LOG_INF("version: %s", STRINGIFY(APP_BUILD_VERSION));
 
 	while (1) {
-		/* Switch between LEDs depending on number of button presses. */
+		/* Switch between LED always on, and blinking, depending on button press. */
 		if ((button_count % 2) == 0) {
 			gpio_pin_toggle_dt(&led0);
-			gpio_pin_set_dt(&led1, 0);
 		} else {
-			gpio_pin_toggle_dt(&led1);
-			gpio_pin_set_dt(&led0, 0);
+			gpio_pin_set_dt(&led0, 1);
 		}
 
-		k_msleep(500);
+		k_msleep(250);
 	}
 
 	return 0;

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20.0)
 
-# Set project name, used for firmware output filename.
+# TEMPLATE_CONFIG: Set project name, used for firmware output filename.
 set(PROJECT app)
 
 # Add board name to firmware output filename.

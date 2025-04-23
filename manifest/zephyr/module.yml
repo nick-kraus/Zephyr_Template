@@ -1,7 +1,9 @@
 build:
-  settings:
+  # TEMPLATE_CONFIG: remove empty dict and uncomment below lines for additional root folders
+  settings: {}
     # Additional board root folder. Zephyr will use the path `<board_root>/boards` for additional boards.
-    board_root: ..
+    # board_root: ..
     # Additional devicetree root folder. Zephyr will use the path `<dts_root>/dts` for additional dts
     # files and `<dts_root>/dts/bindings` for additional dts bindings.
-    dts_root: ..
+    # dts_root: ..
+
