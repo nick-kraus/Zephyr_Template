@@ -1,0 +1,52 @@
+#
+# General
+#
+
+BasedOnStyle: Chromium
+
+# 4 columns for tab stops and indentation.
+TabWidth: 4
+IndentWidth: 4
+# Always use space characters in resulting file.
+UseTab: Never
+
+#
+# C/C++
+#
+
+Language: Cpp
+Standard: Cpp11
+
+# Align pointer / reference to the type.
+PointerAlignment: Left
+
+# Horizontally align arguments after an open bracket.
+AlignAfterOpenBracket: Align
+
+# Align escaped newlines as far left as possible.
+AlignEscapedNewlinesLeft: true
+
+# Horizontally align operands of binary and ternary expressions.
+AlignOperands: true
+
+# Aligns trailing comments.
+AlignTrailingComments: true
+
+# Allow contracting simple braced statements to a single line.
+AllowShortBlocksOnASingleLine: true
+# Allow short if statements on a signle line.
+AllowShortIfStatementsOnASingleLine: true
+# Allow short loops on a signle line.
+AllowShortLoopsOnASingleLine: true
+
+# Function call arguments will either be all on the same line or will have one line each.
+BinPackArguments: false
+
+# 100 column limit on line length.
+ColumnLimit: 100
+
+# Maximum of 1 consecutive empty line.
+MaxEmptyLinesToKeep: 1
+
+# Sort header includes.
+SortIncludes: true
