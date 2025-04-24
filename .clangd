@@ -1,0 +1,24 @@
+CompileFlags:
+  CompilationDatabase: build
+  Remove: 
+    - -fno-printf-return-value
+    - -mfp16-format=ieee
+    - -fno-reorder-functions
+
+Diagnostics:
+  ClangTidy:
+    FastCheckFilter: Loose
+    Add: [
+      bugprone-*,
+      clang-analyzer-*,
+      misc-*,
+      performance-*,
+      readability-duplicate-include,
+      readability-misleading-indentation,
+    ]
+    Remove: [
+      clang-analyzer-security.insecureAPI.*,
+      misc-no-recursion,
+      misc-unused-parameters,
+      performance-no-int-to-ptr,
+    ]

@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.20.0)
 
+# Always generate compilation database.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
+
 # TEMPLATE_CONFIG: Set project name, used for firmware output filename.
 set(PROJECT app)
 
